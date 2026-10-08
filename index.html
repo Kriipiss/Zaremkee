@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для моей любимой сестрёнки 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Caveat:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+            color: #5a4a42;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .float-item {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 15s infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { opacity: 0; transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 12s ease-in-out infinite;
+        }
+
+        .glow-1 { width: 500px; height: 500px; background: #ffd1dc; top: -150px; left: -150px; }
+        .glow-2 { width: 400px; height: 400px; background: #e0c3fc; bottom: 10%; right: -100px; animation-delay: 4s; }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -40px) scale(1.1); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero-emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounce 2.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        .hero h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.8em;
+            color: #d63384;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.15em;
+            line-height: 1.7;
+            color: #7a6a62;
+            font-weight: 400;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff9a9e, #d63384);
+            margin: 40px auto;
+            border-radius: 2px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(214, 51, 132, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(214, 51, 132, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 12px;
+        }
+
+        .card-emoji {
+            font-size: 40px;
+        }
+
+        .card h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2em;
+            color: #d63384;
+        }
+
+        .card p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #6a5a52;
+        }
+
+        .mascot-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            border: 2px dashed #ffb6c1;
+            margin: 40px 0;
+        }
+
+        .mascot {
+            font-size: 90px;
+            animation: wiggle 3s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-6deg); }
+            50% { transform: rotate(6deg); }
+        }
+
+        .mascot-section h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2em;
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        .mascot-section p {
+            color: #7a6a62;
+            font-size: 1.1em;
+        }
+
+        .single-photo-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .single-photo {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .single-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .single-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-caption {
+            margin-top: 15px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.8em;
+            color: #d63384;
+        }
+
+        .poem-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.8));
+            border: 2px solid #ffb6c1;
+            border-radius: 24px;
+            padding: 40px 30px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1);
+        }
+
+        .poem-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8em;
+            color: #d63384;
+            line-height: 1.5;
+        }
+
+        .poem-author {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #a07080;
+            font-style: italic;
+        }
+
+        .btn {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #ff9a9e, #d63384);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(214, 51, 132, 0.4);
+        }
+
+        .final {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .final .big-emoji {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .final h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5em;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            font-size: 1.1em;
+            color: #6a5a52;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9em;
+            color: #a07080;
+            font-family: 'Caveat', cursive;
+            font-size: 1.4em;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden-content {
+            display: none;
+        }
+
+        .hidden-content.show {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.8em; }
+            .poem-text { font-size: 1.5em; }
+            .single-photo { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-elements" id="floatingElements"></div>
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+
+    <div class="container">
+
+        <section class="hero fade-in">
+            <div class="hero-emoji">☀️</div>
+            <h1>Для моей любимой сенстры Заремы</h1>
+            <p>
+                Я вижу как ты стараешься,я очень скучаю,и хочу <br>
+                тебе напомнить, какая ты невероятная, сильная и любимая сентра на свете. 💖
+            </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="card fade-in">
+            <div class="card-header">
+                <div class="card-emoji">💪</div>
+                <h2>Ты сильнее, чем думаешь</h2>
+            </div>
+            <p>
+                Даже в самые трудные дни ты справляешься лучше, чем тебе кажется. 
+                Я вижу, сколько сил ты вкладываешь во всё, что делаешь, и я тобой бесконечно горжусь.
+            </p>
+        </div>
+
+        <div class="card fade-in">
+            <div class="card-header">
+                <div class="card-emoji">💖</div>
+                <h2>Я всегда рядом</h2>
+            </div>
+            <p>
+                Что бы ни случилось, помни: у тебя есть я. 
+                Я всегда на твоей стороне, готова выслушать, поддержать, 
+                помочь или просто помолчать рядом, если это нужно.
+            </p>
+        </div>
+
+        <div class="card fade-in">
+            <div class="card-header">
+                <div class="card-emoji">✨</div>
+                <h2>Ты делаешь мир лучше</h2>
+            </div>
+            <p>
+                Твоя доброта, твоя улыбка и твоя энергия — это настоящая суперсила. 
+                Не забывай сиять, даже если иногда хочется спрятаться. Ты — моё солныншкэ.
+            </p>
+        </div>
+
+        <div class="mascot-section fade-in">
+            <div class="mascot">🐰</div>
+            <h2>Привет от зайчика-обниманшкилаар!</h2>
+            <p>
+                "Я тут, чтобы передать тебе самые крепкие, тёплые и уютные виртуальные обниманшкилаар! 
+                Ты лучшая, я очень тебя люблю, не забывай об этом!" 
+            </p>
+        </div>
+
+        <button class="btn" onclick="showMore()">Получить порцию любви 💌</button>
+
+        <div class="hidden-content" id="extraContent">
+
+            <div class="single-photo-container fade-in">
+                <div class="single-photo">
+                    <img src="assets/images/photo1.jpg" alt="Моя любимая сестра">
+                </div>
+                <div class="photo-caption">Самая красивая и крутая - от самого АЙНУРВАРА, ВОУ ВОУ ВОУ ПОЛЭХЧЕ💖</div>
+            </div>
+
+            <div class="poem-card fade-in">
+                <div class="poem-text">
+                    Пусть все тревоги улетают прочь,<br>
+                    А каждый день дарит тепло и свет.<br>
+                    Я буду рядом и день, и ночь,<br>
+                    Ведь лучше сестры в этом мире нет!
+                </div>
+                <div class="poem-author">— С бесконечной любовью</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="final fade-in">
+                <div class="big-emoji">🌸</div>
+                <h2>Ты справишься со всем!</h2>
+                <p>
+                    Я в тебя верю больше, чем в кого-либо, ты всегда была рядом в трудные минуты. 
+                    Всё наладится, всё получится, а пока просто знай: 
+                    ты не одна. Я всегда за тебя! <br><br>
+                    Люблю тебя до луны и обратно! 🌙💖
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Сделано с огромной любовью для самой лучшей сестры на свете 💕
+        </div>
+
+    </div>
+
+    <script>
+        const floatingContainer = document.getElementById('floatingElements');
+        const cuteEmojis = ['💖', '✨', '🌸', '⭐', '🐰', '☁️', '🫂', '💕'];
+        
+        for (let i = 0; i < 35; i++) {
+            const item = document.createElement('div');
+            item.className = 'float-item';
+            item.textContent = cuteEmojis[Math.floor(Math.random() * cuteEmojis.length)];
+            item.style.left = Math.random() * 100 + '%';
+            item.style.animationDelay = Math.random() * 15 + 's';
+            item.style.animationDuration = (12 + Math.random() * 10) + 's';
+            item.style.fontSize = (16 + Math.random() * 18) + 'px';
+            floatingContainer.appendChild(item);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function showMore() {
+            const content = document.getElementById('extraContent');
+            content.classList.add('show');
+            setTimeout(() => {
+                content.querySelectorAll('.fade-in').forEach(el => {
+                    el.classList.add('visible');
+                    observer.observe(el);
+                });
+            }, 100);
+            setTimeout(() => {
+                content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>
